@@ -54,7 +54,7 @@ const defaultQuotes: Quote[] = [
     theme: "Nutrition & Health",
     image: "/mindset/know-your-food-question-the-claim.jpg",
     caption:
-      "Why should I question a parboiled groundnut when everyone consumes it? Because common doesn’t always mean well understood. We eat certain foods every day, hear things about them, and simply accept them because 'everyone does it.' At FoodĒwà, we believe curiosity is part of eating well: Know your food. Question the claim. Check the evidence.",
+      "Why should I question a parboiled groundnut when everyone consumes it? 🤔\n\nBecause common doesn’t always mean well understood. We eat certain foods every day, hear things about them, and simply accept them because “everyone does it.”\n\nAt FoodÈwà, we believe curiosity is part of eating well.\n\nKnow your food. Question the claim. Check the evidence. Because sometimes, the most ordinary foods have something worth learning about.",
   },
   {
     id: "mindset-innovation-changing-food",
@@ -129,7 +129,7 @@ type SiteStore = {
   resetAll: () => void;
 };
 
-const STORAGE_KEY = "foodewa-store-v11";
+const STORAGE_KEY = "foodewa-store-v12";
 const SiteStoreContext = createContext<SiteStore | null>(null);
 
 export function SiteStoreProvider({ children }: { children: ReactNode }) {
@@ -150,6 +150,7 @@ export function SiteStoreProvider({ children }: { children: ReactNode }) {
         "foodewa-store-v8",
         "foodewa-store-v9",
         "foodewa-store-v10",
+        "foodewa-store-v11",
       ].forEach((k) => window.localStorage.removeItem(k));
 
       const raw = window.localStorage.getItem(STORAGE_KEY);

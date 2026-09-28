@@ -8,7 +8,9 @@ export function QuoteCard({ quote, featured = false }: { quote: Quote; featured?
   const [copied, setCopied] = useState(false);
   const [showImage, setShowImage] = useState(false);
 
-  const full = `"${quote.text}"\n\n${quote.caption ? quote.caption + "\n\n" : ""}— ${quote.author}, FoodĒwà Labs #FoodEwaLabs`;
+  const full = quote.caption
+    ? `"${quote.text}"\n\n${quote.caption}\n\n— ${quote.author}`
+    : `"${quote.text}"\n\n— ${quote.author}`;
 
   async function copy() {
     try {
@@ -81,7 +83,7 @@ export function QuoteCard({ quote, featured = false }: { quote: Quote; featured?
 
       {quote.caption && (
         <p
-          className={`mt-3 text-sm leading-relaxed ${
+          className={`mt-3 text-sm leading-relaxed whitespace-pre-line ${
             featured ? "text-primary-foreground/80" : "text-muted-foreground"
           }`}
         >
