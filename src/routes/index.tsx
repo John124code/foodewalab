@@ -146,7 +146,7 @@ function Index() {
                 to="/events"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all"
               >
-                See all sessions and replays <ArrowRight size={15} />
+                Explore events and registration <ArrowRight size={15} />
               </Link>
             </Reveal>
           </div>

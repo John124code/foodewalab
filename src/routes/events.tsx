@@ -68,9 +68,19 @@ function EventsPage() {
             </RevealItem>
           ))}
           {list.length === 0 ? (
-            <p className="rounded-2xl border border-dashed border-border p-10 text-center text-sm text-muted-foreground">
-              Nothing here yet — check back soon.
-            </p>
+            <div className="rounded-2xl border border-dashed border-border p-12 text-center text-muted-foreground">
+              <p className="font-display text-base font-semibold text-primary">No past replays yet</p>
+              <p className="mt-1 text-sm">
+                This October 7 webinar is FoodĒwà Labs' inaugural event! Make sure to reserve your seat for our first live session.
+              </p>
+              <button
+                type="button"
+                onClick={() => setTab("upcoming")}
+                className="mt-4 inline-flex items-center gap-2 rounded-full gradient-accent px-5 py-2 text-xs font-semibold text-accent-foreground"
+              >
+                View Upcoming Event
+              </button>
+            </div>
           ) : null}
         </RevealGroup>
       </div>
