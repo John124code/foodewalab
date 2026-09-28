@@ -1,5 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Compass, Eye, Linkedin, Target, Twitter } from "lucide-react";
+import {
+  Compass,
+  Eye,
+  GraduationCap,
+  Linkedin,
+  Megaphone,
+  Target,
+  Twitter,
+  Users,
+  Video,
+} from "lucide-react";
 import { RevealGroup, RevealItem } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 
@@ -10,12 +20,12 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Our aim, vision and mission, what the FoodĒwà Lab represents, and the team behind the community.",
+          "Our aim, vision, mission, and strategic goals: empowering food scientists, nutritionists, and technologists worldwide.",
       },
       { property: "og:title", content: "About & Team — FoodĒwà Labs" },
       {
         property: "og:description",
-        content: "Meet the people reimagining nutrition and empowering food professionals.",
+        content: "Meet the people and goals reimagining nutrition and food science.",
       },
     ],
   }),
@@ -26,17 +36,56 @@ const principles = [
   {
     icon: Target,
     title: "Our Aim",
-    body: "To make food science and nutrition knowledge practical, accessible and career-ready for every student and early-career professional.",
+    body: "To make food science and nutrition knowledge practical, accessible, and career-ready for students and early-career professionals across Africa and beyond.",
   },
   {
     icon: Eye,
     title: "Our Vision",
-    body: "A generation of food professionals who lead innovation in safety, nutrition and product development across Africa and beyond.",
+    body: "To be a global hub that transforms how people perceive and apply food science, inspiring innovation, careers, and solutions for a healthier world.",
   },
   {
     icon: Compass,
     title: "Our Mission",
-    body: "To train, connect and equip through free live sessions, applied lab projects and an active peer community.",
+    body: "To enlighten, guide, and empower students, professionals, and the public by providing education, mindset transformation, and career roadmaps in food science through trainings, digital content, and community-driven programs.",
+  },
+];
+
+const strategicGoals = [
+  {
+    number: "01",
+    icon: Megaphone,
+    title: "Awareness",
+    tagline: "Demystifying Food Science",
+    description:
+      "Organize regular seminars, webinars, podcasts, and workshops to demystify food science and illuminate its wide range of career opportunities.",
+    highlights: ["Interactive Webinars", "Industry Podcasts", "Hands-on Workshops"],
+  },
+  {
+    number: "02",
+    icon: GraduationCap,
+    title: "Education",
+    tagline: "Career & Industry Skills",
+    description:
+      "Develop online and offline training programs on food science concepts, high-demand career paths, and real-world industry applications.",
+    highlights: ["Applied Curriculum", "Specialized Bootcamps", "Career Roadmaps"],
+  },
+  {
+    number: "03",
+    icon: Video,
+    title: "Content Creation",
+    tagline: "Accessible Knowledge",
+    description:
+      "Publish blogs, eBooks, newsletters, and engaging videos that simplify food science for students, professionals, and curious eaters.",
+    highlights: ["Mindset Insights", "eBooks & Guides", "Bite-sized Video Content"],
+  },
+  {
+    number: "04",
+    icon: Users,
+    title: "Community Building",
+    tagline: "A Collaborative Hub",
+    description:
+      "Create a supportive ecosystem where students, researchers, and entrepreneurs connect, collaborate, and grow together.",
+    highlights: ["Peer Mentorship", "Research Networks", "Student Hubs"],
   },
 ];
 
@@ -122,7 +171,59 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-warm py-16 sm:py-20">
+      {/* Strategic Goals Section */}
+      <section className="bg-warm py-16 sm:py-20 border-y border-border/30">
+        <div className="mx-auto max-w-6xl px-5">
+          <SectionHeading
+            eyebrow="Our Goals"
+            green="Four strategic pillars"
+            orange="driving measurable impact."
+            description="From awareness and education to content and community, here is how FoodĒwà Labs translates its mission into daily action."
+          />
+
+          <RevealGroup className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {strategicGoals.map((g) => (
+              <RevealItem key={g.title}>
+                <div className="surface-card group relative flex h-full flex-col justify-between overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-md">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-soft text-accent transition-transform duration-300 group-hover:scale-110">
+                        <g.icon size={20} />
+                      </span>
+                      <span className="font-display text-xs font-bold uppercase tracking-widest text-muted-foreground/60">
+                        {g.number}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-5 font-display text-lg font-bold text-primary">
+                      {g.title}
+                    </h3>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                      {g.tagline}
+                    </p>
+                    <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                      {g.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 border-t border-border/40 pt-4">
+                    <ul className="space-y-1.5">
+                      {g.highlights.map((h) => (
+                        <li key={h} className="flex items-center gap-2 text-[0.72rem] font-medium text-primary/80">
+                          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5">
           <SectionHeading
             eyebrow="FoodĒwà Lab"
