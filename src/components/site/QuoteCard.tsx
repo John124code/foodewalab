@@ -1,4 +1,4 @@
-import { Check, Copy, Maximize2, Quote as QuoteIcon, Share2, Image as ImageIcon } from "lucide-react";
+import { Check, Copy, Download, Maximize2, Quote as QuoteIcon, Share2, Image as ImageIcon } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
@@ -143,14 +143,30 @@ export function QuoteCard({ quote, featured = false }: { quote: Quote; featured?
                 className="max-h-[calc(90vh-90px)] w-auto max-w-full object-contain rounded-lg shadow-sm"
               />
             </div>
-            <div className="shrink-0 flex items-center justify-center gap-3 pt-1">
+            <div className="shrink-0 flex flex-wrap items-center justify-center gap-2 pt-1">
+              <a
+                href={quote.image}
+                download
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-xs font-semibold text-primary transition-colors hover:border-accent hover:text-accent"
+              >
+                <Download size={13} /> Save Flyer
+              </a>
+              <a
+                href={`https://api.whatsapp.com/send?text=${encodeURIComponent(full)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366]/20 border border-[#25D366]/30 px-3.5 py-2 text-xs font-semibold transition-colors"
+                title="Share on WhatsApp"
+              >
+                <Share2 size={13} /> WhatsApp
+              </a>
               <a
                 href={quote.image}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full gradient-accent px-5 py-2 text-xs font-semibold text-accent-foreground shadow-sm transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-1.5 rounded-full gradient-accent px-4 py-2 text-xs font-semibold text-accent-foreground shadow-sm transition-transform hover:-translate-y-0.5"
               >
-                Open Full Flyer
+                Open Full
               </a>
             </div>
           </DialogContent>

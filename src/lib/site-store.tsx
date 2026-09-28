@@ -48,6 +48,15 @@ const defaultWebinars: Webinar[] = [
 
 const defaultQuotes: Quote[] = [
   {
+    id: "mindset-know-your-food-question-the-claim",
+    text: "KNOW YOUR FOOD. QUESTION THE CLAIM.",
+    author: "FoodĒwà Labs",
+    theme: "Nutrition & Health",
+    image: "/mindset/know-your-food-question-the-claim.jpg",
+    caption:
+      "Why should I question a parboiled groundnut when everyone consumes it? Because common doesn’t always mean well understood. We eat certain foods every day, hear things about them, and simply accept them because 'everyone does it.' At FoodĒwà, we believe curiosity is part of eating well: Know your food. Question the claim. Check the evidence.",
+  },
+  {
     id: "mindset-innovation-changing-food",
     text: "INNOVATION IS CHANGING FOOD: Science + Technology + Creativity = New Possibilities.",
     author: "FoodĒwà Labs",
@@ -120,7 +129,7 @@ type SiteStore = {
   resetAll: () => void;
 };
 
-const STORAGE_KEY = "foodewa-store-v10";
+const STORAGE_KEY = "foodewa-store-v11";
 const SiteStoreContext = createContext<SiteStore | null>(null);
 
 export function SiteStoreProvider({ children }: { children: ReactNode }) {
@@ -140,6 +149,7 @@ export function SiteStoreProvider({ children }: { children: ReactNode }) {
         "foodewa-store-v7",
         "foodewa-store-v8",
         "foodewa-store-v9",
+        "foodewa-store-v10",
       ].forEach((k) => window.localStorage.removeItem(k));
 
       const raw = window.localStorage.getItem(STORAGE_KEY);
